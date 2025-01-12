@@ -369,7 +369,7 @@ doc_events = {
         "before_save": "optic_store.doc_events.sales_invoice.before_save",
         "before_submit": "optic_store.doc_events.sales_invoice.before_submit",
         "on_submit": "optic_store.doc_events.sales_invoice.on_submit",
-        "on_update_after_submit": "optic_store.doc_events.sales_invoice.on_update_after_submit",  # noqa
+        "on_update_after_submit": "optic_store.doc_events.sales_invoice.on_update_after_submit",
         "before_cancel": "optic_store.doc_events.sales_invoice.before_cancel",
         "on_cancel": "optic_store.doc_events.sales_invoice.on_cancel",
     },
@@ -380,14 +380,9 @@ doc_events = {
         "on_submit": "optic_store.doc_events.payment_entry.on_submit",
         "on_cancel": "optic_store.doc_events.payment_entry.on_cancel",
     },
-    "Journal Entry": {"on_cancel": "optic_store.doc_events.journal_entry.on_cancel"},
-    "*": {
-        "after_insert": "optic_store.api.sms.process",
-        "on_update": "optic_store.api.sms.process",
-        "on_submit": "optic_store.api.sms.process",
-        "on_update_after_submit": "optic_store.api.sms.process",
-        "on_cancel": "optic_store.api.sms.process",
-    },
+    "Journal Entry": {
+        "on_cancel": "optic_store.doc_events.journal_entry.on_cancel"
+    }
 }
 
 # Scheduled Tasks
@@ -397,8 +392,7 @@ scheduler_events = {
     # "all": ["optic_store.tasks.all"],
     "daily": [
         "optic_store.api.gift_card.write_off_expired_gift_cards",
-        "optic_store.api.email_alerts.process",
-        "optic_store.api.sales_invoice.write_off_expired_credit_notes",
+        "optic_store.api.email_alerts.process"
     ],
     # "hourly": ["optic_store.tasks.hourly"],
     # "weekly": ["optic_store.tasks.weekly"],
@@ -419,7 +413,9 @@ override_whitelisted_methods = {
     "erpnext.selling.page.point_of_sale.point_of_sale.search_items": "optic_store.api.pos.search_items",
     "erpnext.selling.page.point_of_sale.point_of_sale.get_items": "optic_store.api.pos.get_items",
     "erpnext.accounts.doctype.loyalty_program.loyalty_program.get_loyalty_program_details": "optic_store.api.pos.get_loyalty_program_details",
-    "erpnext.stock.get_item_details.get_item_details": "optic_store.api.item.get_item_details"
+    "erpnext.stock.get_item_details.get_item_details": "optic_store.api.item.get_item_details",
+    "erpnext.selling.page.point_of_sale.point_of_sale.get_loyalty_programs": "optic_store.api.pos.get_loyalty_programs",
+    "erpnext.selling.page.point_of_sale.point_of_sale.get_invoice_summary": "optic_store.api.pos.get_invoice_summary"
 }
 
 # Jinja Environment Customizations
