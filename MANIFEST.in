@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include optic_store *.css
+recursive-include optic_store *.csv
+recursive-include optic_store *.html
+recursive-include optic_store *.ico
+recursive-include optic_store *.js
+recursive-include optic_store *.json
+recursive-include optic_store *.md
+recursive-include optic_store *.png
+recursive-include optic_store *.py
+recursive-include optic_store *.svg
+recursive-include optic_store *.txt
+recursive-exclude optic_store *.pyc

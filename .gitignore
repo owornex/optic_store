@@ -1,0 +1,11 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+tags
+optic_store/docs/current
+**/__pycache__
+/node_modules
+yarn.lock
+
+.vscode
