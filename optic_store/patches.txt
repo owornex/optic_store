@@ -13,3 +13,4 @@ optic_store.patches.v0_8.set_reference_stock_transfer
 optic_store.patches.v0_8.reset_employee_permlevels
 optic_store.patches.v0_10.remove_ignore_min_price_field
 optic_store.patches.v0_10.set_default_ignore_min_price_field
+optic_store.patches.v0_11.update_pos_search_method

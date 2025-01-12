@@ -419,7 +419,7 @@ override_whitelisted_methods = {
     "erpnext.selling.page.point_of_sale.point_of_sale.search_items": "optic_store.api.pos.search_items",
     "erpnext.selling.page.point_of_sale.point_of_sale.get_items": "optic_store.api.pos.get_items",
     "erpnext.accounts.doctype.loyalty_program.loyalty_program.get_loyalty_program_details": "optic_store.api.pos.get_loyalty_program_details",
-    "erpnext.stock.get_item_details.get_item_details": "optic_store.api.item.get_item_details",
+    "erpnext.stock.get_item_details.get_item_details": "optic_store.api.item.get_item_details"
 }
 
 # Jinja Environment Customizations

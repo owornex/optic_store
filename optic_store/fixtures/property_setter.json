@@ -437,6 +437,6 @@
   "parenttype": null,
   "property": "search_fields",
   "property_type": "Data",
-  "value": "customer_name,customer_group,territory, mobile_no,primary_address,os_loyalty_card_no,os_mobile_number,os_cpr_no"
+  "value": "customer_name,customer_group,territory,mobile_no,primary_address,os_mobile_number,os_cpr_no"
  }
 ]
