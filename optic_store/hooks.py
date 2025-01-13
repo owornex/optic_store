@@ -34,112 +34,79 @@ page_js = {
 }
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
-# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
-# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+doctype_js = {
+    "Sales Order": "public/js/transaction_controller.js",
+    "Sales Invoice": "public/js/transaction_controller.js",
+    "Delivery Note": "public/js/transaction_controller.js",
+}
 
-# Home Pages
-# ----------
-
-# application home page (will override Website Settings)
-# home_page = "login"
-
-# website user home page (by Role)
-# role_home_page = {
-#	"Role": "home_page"
-# }
-
-# Generators
-# ----------
-
-# automatically create page for each record of this doctype
-# website_generators = ["Web Page"]
-
-# Installation
-# ------------
-
-# before_install = "optic_store.install.before_install"
-# after_install = "optic_store.install.after_install"
-
-# Desk Notifications
-# ------------------
-# See frappe.core.notifications.get_notification_config
-
-# notification_config = "optic_store.notifications.get_notification_config"
-
-# Permissions
-# -----------
-# Permissions evaluated in scripted ways
-
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
-#
-# has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
+doctype_list_js = {
+    "Sales Invoice": "public/js/sales_invoice_list.js",
+    "Stock Entry": "public/js/stock_entry_list.js",
+}
 
 # DocType Class
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+    "Optical Prescription": "optic_store.optic_store.doctype.optical_prescription.optical_prescription.OpticalPrescription"
+}
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+    "Sales Order": {
+        "before_naming": "optic_store.doc_events.sales_order.before_naming",
+        "validate": "optic_store.doc_events.sales_order.validate",
+        "before_insert": "optic_store.doc_events.sales_order.before_insert",
+        "before_save": "optic_store.doc_events.sales_order.before_save",
+        "before_submit": "optic_store.doc_events.sales_order.before_submit",
+        "on_update": "optic_store.doc_events.sales_order.on_update",
+        "before_cancel": "optic_store.doc_events.sales_order.before_cancel",
+    },
+    "Sales Invoice": {
+        "before_naming": "optic_store.doc_events.sales_invoice.before_naming",
+        "validate": "optic_store.doc_events.sales_invoice.validate",
+        "before_insert": "optic_store.doc_events.sales_invoice.before_insert",
+        "before_save": "optic_store.doc_events.sales_invoice.before_save",
+        "before_submit": "optic_store.doc_events.sales_invoice.before_submit",
+        "on_submit": "optic_store.doc_events.sales_invoice.on_submit",
+        "on_update_after_submit": "optic_store.doc_events.sales_invoice.on_update_after_submit",
+        "before_cancel": "optic_store.doc_events.sales_invoice.before_cancel",
+        "on_cancel": "optic_store.doc_events.sales_invoice.on_cancel",
+    }
+}
 
-# Scheduled Tasks
+# Fixtures
 # ---------------
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Sales Order-os_order_type",
+                    "Sales Order-os_branch",
+                    "Sales Order-os_item_type",
+                    "Sales Order-os_sales_person",
+                    "Sales Order-os_sales_person_name",
+                    "Sales Invoice-os_branch",
+                    "Sales Invoice-os_sales_person",
+                    "Sales Invoice-os_sales_person_name"
+                ]
+            ]
+        ]
+    }
+]
 
-# scheduler_events = {
-# 	"all": [
-# 		"optic_store.tasks.all"
-# 	],
-# 	"daily": [
-# 		"optic_store.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"optic_store.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"optic_store.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"optic_store.tasks.monthly"
-# 	]
-# }
-
-# Testing
-# -------
-
-# before_tests = "optic_store.install.before_tests"
-
-# Overriding Methods
-# ------------------------------
-#
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "optic_store.event.get_events"
-# }
-#
-# each overriding function accepts a `data` argument;
-# generated from the base implementation of the doctype dashboard,
-# along with any modifications made in other Frappe apps
-# override_doctype_dashboards = {
-# 	"Task": "optic_store.task.get_dashboard_data"
-# }
-
-# exempt linked doctypes from being automatically cancelled
-#
-# auto_cancel_exempted_doctypes = ["Auto Repeat"]
+# Translation
+# ------------------
+translation_dirs = ['translations']
+lang_map = {
+    'pt-BR': ['pt', 'pt-br'],
+}
