@@ -1,0 +1,59 @@
+.optical-prescription {
+    padding: 15px;
+}
+
+.prescription-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.prescription-header h2 {
+    margin: 0;
+}
+
+.prescription-list {
+    display: grid;
+    gap: 15px;
+}
+
+.prescription-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    transition: box-shadow 0.2s ease;
+}
+
+.prescription-card:hover {
+    box-shadow: var(--shadow-base);
+}
+
+.prescription-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.prescription-details {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.prescription-details span:not(:last-child)::after {
+    content: "•";
+    margin: 0 8px;
+}
+
+.no-prescriptions {
+    padding: 30px;
+    font-size: 14px;
+}
+
+.hide {
+    display: none;
+} 
