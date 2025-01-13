@@ -18,9 +18,9 @@
             "role": "Sales User"
         }
     ],
-    "script": null,
+    "script": "optical_prescription.js",
     "standard": "Yes",
-    "style": null,
+    "style": "optical_prescription.css",
     "system_page": 0,
     "title": "Optical Prescription"
 } 
